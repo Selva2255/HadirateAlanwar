@@ -9,27 +9,42 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ variant = 'main', className = '', size = 'md' }) => {
   const getSizeClass = () => {
     switch (size) {
-      case 'sm': return 'h-8';
-      case 'lg': return 'h-16';
-      default: return 'h-12';
+      case 'sm':
+        return 'h-8';
+      case 'lg':
+        return 'h-16';
+      default:
+        return 'h-12';
     }
   };
 
   const getLogoSrc = () => {
+    const base = import.meta.env.BASE_URL;
     switch (variant) {
       case 'prodair':
-        return '/Logo-prod\'air+SLOGAN.png';
+        return `${base}Logo-prod'air+SLOGAN.png`;
       case 'novelia':
-        return '/Logo_Powered_by_NOVELIA-removebg-preview.png';
+        return `${base}Logo_Powered_by_NOVELIA-removebg-preview.png`;
       default:
-        return '/Nouveau-Logo-HAA-2021-v-final-removebg-preview.png';
+        return `${base}Nouveau-Logo-HAA-2021-v-final-removebg-preview.png`;
+    }
+  };
+
+  const getAltText = () => {
+    switch (variant) {
+      case 'prodair':
+        return "Logo Prod'Air";
+      case 'novelia':
+        return 'Logo Novelia';
+      default:
+        return 'Logo Hadirate Al Anwar';
     }
   };
 
   return (
     <img
       src={getLogoSrc()}
-      alt={`${variant === 'main' ? 'Hadirate Al Anwar' : variant === 'prodair' ? 'Prod\'Air' : 'Novelia'} logo`}
+      alt={getAltText()}
       className={`${getSizeClass()} w-auto object-contain ${className}`}
     />
   );
