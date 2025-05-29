@@ -22,11 +22,11 @@ const Logo: React.FC<LogoProps> = ({ variant = 'main', className = '', size = 'm
     const base = import.meta.env.BASE_URL;
     switch (variant) {
       case 'prodair':
-        return `${base}Logo-prod'air+SLOGAN.png`;
+        return `${base}Logoprodair.png`;
       case 'novelia':
-        return `${base}Logo_Powered_by_NOVELIA-removebg-preview.png`;
+        return `${base}Logonovelia.png`;
       default:
-        return `${base}Nouveau-Logo-HAA-2021-v-final-removebg-preview.png`;
+        return `${base}LogoHAA.png`;
     }
   };
 
